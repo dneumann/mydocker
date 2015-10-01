@@ -1,3 +1,11 @@
-*~
-.viminfo
-.bash_history
+*
+
+!*/
+
+!.gitignore
+!Dockerfile
+!build.sh
+!start.sh
+!.bash_logout
+!.bashrc
+!.profile
