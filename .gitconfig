@@ -1,0 +1,7 @@
+[alias]
+	lg = log --oneline --all --graph --decorate
+[user]
+	name = Dennis Neumann
+	email = neumann@sub.uni-goettingen.de
+[push]
+	default = simple

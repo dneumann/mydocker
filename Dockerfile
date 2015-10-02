@@ -9,5 +9,8 @@ RUN apt-get update && apt-get install -y \
 RUN adduser --disabled-password --gecos "" dennis
 
 USER dennis
-
+RUN git config --global alias.lg "log --oneline --all --graph --decorate"
+RUN git config --global user.name "Dennis Neumann"
+RUN git config --global user.email "neumann@sub.uni-goettingen.de"
+RUN git config --global push.default simple
 WORKDIR /home/dennis/
