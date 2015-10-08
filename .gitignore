@@ -10,3 +10,5 @@
 !.bashrc
 !.profile
 !.gitconfig
+!*/.emptyfile
+!git/
