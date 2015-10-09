@@ -1,0 +1,186 @@
+Configuring
+
+git config --global user.name
+git config --global user.name "..."
+git config --global user.email
+.gitconfig
+git config --global --list
+
+git status -s (silent)
+git config --global alias.lg "log --oneline --all --graph --decorate"
+
+git config --global push.default simple (push only the current branch, before 2.0: default is matching)
+
+Create repository
+
+git init web1
+git remote add origin https://github.com/dneumann/web1.git
+git push -u origin master (-u: set default upstream for master to origin)
+
+git init
+
+
+Rename file
+
+git mv index.html home.html
+
+mv index.css home.css
+git add -A (default before 2.0 is --ignore-removal)
+
+
+Delete file
+
+git rm index.html
+
+rm index.css
+git add -A
+
+
+git commit -a (will ignore new/untracked files)
+
+
+New branch
+
+git branch dev
+git checkout dev
+
+git checkout -b dev
+
+
+Merge into master
+
+git checkout master
+git merge dev
+git merge --no-ff dev (recursive merge)
+
+
+Delete branch
+
+git branch -d dev
+git push origin --delete dev
+
+
+If merge conflict
+
+git status
+edit file
+git add file
+git commit
+
+
+Remove from index
+
+git reset HEAD .
+
+
+Diff
+
+git diff
+git diff --staged
+git diff HEAD (both)
+
+
+Rebase
+
+feature1, feature2 committed
+feature1 merged into master and branch deleted
+rebase feature2 onto master/HEAD
+git checkout feature2
+git rebase master
+git checkout master
+git merge --no-ff feature2
+git branch -d feature2
+
+
+If rebase conflict
+
+git status
+edit file
+git add file
+git rebase --continue
+git checkout master
+git merge --no-ff feature4
+
+
+All branches
+
+git branch -a
+
+
+Avoid a merge on pull
+
+git fetch
+git rebase origin/master
+git push
+
+git pull --rebase
+
+
+Push a newly created feature branch
+
+git push -u origin new_feature
+
+
+Lightweight tag for a commit
+
+git tag v1.0.0
+
+Annotated tag
+
+git tag -a v1.0.1 -m "message"
+git show v1.0.1
+
+Turn release tag into release branch and make a fix to previous release
+
+git checkout v1.0.0
+git checkout -b br1.0
+git commit ...
+git tag v1.0.0a
+git checkout master
+git merge br1.0
+
+
+Stashing
+
+git stash
+git checkout branch1
+git stash apply
+git checkout master
+git stash pop
+
+
+Push tags to Github
+
+git push --tags
+
+
+Revert one pushed commit and make a new "un"-commit / unmerge a branch
+
+git revert 1234abcd
+
+Correct the last commit message (and commit the staging area if changed)
+
+git commit --amend
+
+Infos
+
+git show 1234abcd
+
+
+Throw away last two commits
+
+git reset (--mixed) HEAD~2
+--soft: leave files in staging area
+--hard: delete files
+
+
+See reflog
+
+git reflog
+git reset --hard 1234abcd
+
+
+See remote URL
+git remote -v
+
+

@@ -1,0 +1,11 @@
+replace all newlines
+tr '\n' ' ' < input_filename
+
+
+for lang in $langs; do
+	echo $lang
+done
+
+for i in {137..999}; do
+	echo $i
+done

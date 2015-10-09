@@ -12,5 +12,7 @@
 !.gitconfig
 !*/.emptyfile
 !git/
-!bfg.jar
-!clone-all.sh
+!git/bfg.jar
+!git/clone-all.sh
+!help
+!help/*

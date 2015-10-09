@@ -1,0 +1,12 @@
+- install node.js
+curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
+sudo apt-get install --yes nodejs
+
+- install grunt
+npm install -g grunt-cli
+
+- start new project (generate package.json)
+npm init
+
+- install local grunt
+npm install grunt --save-dev

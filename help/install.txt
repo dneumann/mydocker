@@ -1,0 +1,23 @@
+
+sudo apt-get install firefox
+# chrome.deb
+sudo apt-get install vlc
+
+sudo apt-get install pidgin
+# XMPP
+# dneuman1
+# Domain: jabber.gwdg.de
+# 4
+
+sudo apt-get install acroread
+sudo apt-get install dropbox
+sudo apt-get install atom
+sudo apt-get install virtualbox
+sudo apt-get install gimp
+# oxygene
+# skype
+# wine + office
+# xmind
+# eclipse
+
+

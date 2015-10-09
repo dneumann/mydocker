@@ -1,0 +1,108 @@
+
+docker pull dneumann/imagename
+docker pull ubuntu:trusty
+docker pull ubuntu:14.04
+docker tag ubuntu:trusty ubuntu:bla
+docker images
+docker run -it ...(cid) /bin/bash
+docker run -d ... /bin/bash -c '/root/command.sh' (as daemon)
+
+docker history imagename
+
+docker ps -a
+docker top ...
+docker rm ...
+docker rm -f $(docker ps -a -q)
+docker logs ...
+
+Save changes
+docker pause ...
+docker commit ... -> image id
+docker tag [image id] dneumann/myImage
+
+docker kill ...
+docker rm ...
+docker run -d -p 80:80 dneumann/myImage /bin/bash -c '..'
+
+Push image
+docker login
+docker push dneumann/myImage
+
+Remove image
+docker rmi dneumann/myImage
+
+See daemon events
+docker events --since=0
+
+docker run -d ...
+docker stop ...
+docker start ...
+docker restart ...
+
+docker inspect ...
+
+Copy file from container
+docker cp ...:/etc/passwd /tmp
+
+docker exec ... touch /tmp/hello
+
+See all changed files
+docker diff ...
+
+docker build -t tag_name .
+docker run tag_name
+docker build --no-cache .
+
+Use the same network as host
+docker run -d --name bla --net=host myImage
+
+Only reveal one port
+docker run -d --name bla --publish 80:80 myImage
+
+Link two containers
+docker run -t -d --name one ubuntu nc -l 12345
+docker run -t -i --name two --link one:otherone ubuntu /bin/bash
+> ping otherone
+> nc otherone 12345
+testtest
+docker logs one -> testtest
+
+Volume mount
+docker run -v /tmp/hostdir:/tmp/containerdir -t -i myImage /bin/bash
+
+docker-compose.yml
+one:
+ image: ubuntu
+ command: nc -l 12345
+two:
+ image: ubuntu
+ command: /bin/bash -c 'sleep 3'
+ links:
+ - one:one
+
+docker-compose up
+
+Run detached and then attach
+docker run -d ...
+docker logs -f ...
+docker attach ...
+
+Find out forwarded port
+docker port ... 80
+
+docker ps -l (latest only)
+
+docker run -P myImage (dynamic port)
+
+RUN apt-get install -y nginex (non-interactive)
+
+VOLUME /data
+docker run -v /data test/webserver
+docker run -d -v /host/dir:/container/dir test/webserver
+
+docker run -h "myhost" debian
+
+docker port ...
+
+// volumes von db1 zeigen
+docker inspect -f {{.Volumes}} db1

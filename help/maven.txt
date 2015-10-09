@@ -1,0 +1,11 @@
+new webapp project
+
+mvn archetype:generate
+...
+647
+
+cd project-name
+mkdir -p src/main/java src/test/java src/test/resources
+echo -e "target\n*.log" > .gitignore
+
+git init .
