@@ -1,6 +1,8 @@
 [alias]
 	lg = log --oneline --all --graph --decorate
 	ss = status -s
+[core]
+	pager = less
 [user]
 	name = Dennis Neumann
 	email = neumann@sub.uni-goettingen.de
