@@ -3,16 +3,22 @@
 */
 
 !.gitignore
+
 !Dockerfile
 !build.sh
 !start.sh
+
 !.bash_logout
 !.bashrc
 !.profile
 !.gitconfig
+!.vimrc
+
 !*/.emptyfile
+
 !git/
 !git/bfg.jar
 !git/clone-all.sh
+
 !help
 !help/*
