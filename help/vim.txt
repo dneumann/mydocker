@@ -143,10 +143,27 @@ r
 4s
 
 -- substitute line
-S
+S, cc
 
 -- read file into buffer
 :read my.txt
+
+-- go to column 40
+40|
+
+-- copy and paste in/from buffer b
+"byw
+"bp
+
+-- undo, redo
+u, Ctrl-r
+
+-- replace chars/line
+r/R
+
+-- switch case of 3 letters
+3~
+
 
 
 
