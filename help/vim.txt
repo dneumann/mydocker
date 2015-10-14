@@ -1,12 +1,11 @@
-:help bla, :h bla
-:h normal-index, :h insert-index, :h index
-:helpgrep lookahead
-:cnext, :cprev, :cnfile, :cpfile
-:q, ZZ = :wq
- 
--- follow link, go back
-Ctrl-AltGr-](9), Ctrl-t
+-- top / bottom
+gg / G
 
+-- to line 5
+5G, 5gg
+
+-- start of next / previous line
+<CR> / -
 
 -- info about file
 Ctrl-g
@@ -20,69 +19,14 @@ W,E / B
 -- start / end of current line
 0,^ / $
 
--- start of next / previous line
-<CR> / -
-
--- start / end of paragraph
-{ / }
-
--- top / bottom
-gg / G
-
--- to line 5
-5G, 5gg
-
--- to 50%
-50%
+-- quit
+ZZ = :wq
 
 -- jump between brackets
 %
 
--- up three lines
-3k
-
--- copy from upper line
-Ctrl-y
-
--- insert last insertion
-Ctrl-a
-
--- insert minutes in a day
-Ctrl-r=
-60*24
-
--- indent/unindent with tab
-Ctrl-t / Ctrl-d
-
--- delete last word
-Ctrl-w
-
--- to normal mode for one command
-Ctrl-o
-
 -- reset all changes
 :e!
-
--- save as
-:w new_file
-
--- use terminal
-:!rm myfile
-
--- temporary shell
-:sh, Ctrl-d
-Ctrl-z, fg 1
-
--- split buffer
-:sp
-
--- history
-:history (view only)
-q:
-: Ctrl-f
-
--- leave current window only
-:on, :only
 
 -- open file (edit)
 :e file2
@@ -90,12 +34,17 @@ q:
 -- show dir
 :e Ctrl-d
 
--- change file format
-:set fileformat=unix
+-- save as
+:w new_file
 
--- show line numbers
-:set nu
-:se relativenumber
+-- split buffer
+:sp
+
+-- go to upper window
+Ctrl-w k
+
+-- history
+q:
 
 -- delete to end of line + insert (change)
 c$, C
@@ -105,12 +54,6 @@ D
 
 -- repeat last action
 .
-
--- indent / outdent current line
->> / <<
-
--- indent 5 lines
->5j
 
 -- inner/all word, tag, paragraph, ", sentence, bracket
 iw/aw, it, ip, i", is/as, i)/a)
@@ -133,9 +76,6 @@ I / A
 -- open next, previous line
 o, O
 
--- macro in register 1
-q1, q, @1
-
 -- replace character
 r
 
@@ -145,9 +85,6 @@ r
 -- substitute line
 S, cc
 
--- read file into buffer
-:read my.txt
-
 -- go to column 40
 40|
 
@@ -155,14 +92,84 @@ S, cc
 "byw
 "bp
 
+-- paste from 2nd last deleted (only lines)
+"2p
+
 -- undo, redo
-u, Ctrl-r
+u, U(on line), Ctrl-r
 
 -- replace chars/line
 r/R
 
 -- switch case of 3 letters
 3~
+
+## delete last word
+Ctrl-w
+
+:help bla, :h bla
+:h normal-index, :h insert-index, :h index
+:helpgrep lookahead
+:cnext, :cprev, :cnfile, :cpfile
+ 
+-- follow link, go back
+Ctrl-AltGr-](9), Ctrl-t
+
+-- start / end of paragraph
+{ / }
+
+-- to 50%
+50%
+
+-- copy from upper line
+Ctrl-y
+
+-- insert last insertion
+Ctrl-a
+
+-- insert minutes in a day
+Ctrl-r=
+60*24
+
+## indent/unindent with tab
+Ctrl-t / Ctrl-d
+
+-- to normal mode for one command
+Ctrl-o
+
+-- use terminal
+:!rm myfile
+
+-- temporary shell
+:sh, Ctrl-d
+Ctrl-z, fg 1
+
+-- history
+:history (view only)
+q:
+: Ctrl-f
+
+-- leave current window only
+:on, :only
+
+-- change file format
+:set fileformat=unix
+
+-- show line numbers
+:set nu
+:se relativenumber
+
+-- indent / outdent current line
+>> / <<
+
+-- indent 5 lines
+>5j
+
+-- macro in register 1
+q1, q, @1
+
+-- read file into buffer
+:read my.txt
 
 
 
