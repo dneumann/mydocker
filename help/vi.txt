@@ -4,11 +4,14 @@ gg / G
 -- to line 5
 5G, 5gg
 
--- start of next / previous line
-<CR> / -
+-- first character of next / previous line
+<Enter> / -
 
 -- info about file
 Ctrl-g
+
+-- begin / end of word (or of next word)
+b / e
 
 -- next / previous word
 w,e / b,ge
@@ -40,6 +43,10 @@ ZZ = :wq
 -- split buffer
 :sp
 
+-- split and load new file
+:sp file.txt
+:new, :e file.txt
+
 -- go to upper window
 Ctrl-w k
 
@@ -67,11 +74,17 @@ Ctrl-e, Ctrl-y
 -- scroll by page
 Ctrl-f, Ctrl-b
 
+-- scroll by half-page up, down
+Ctrl-u, Ctrl-d
+
 -- go to high, middle, low
 H, M, L
 
 -- insert / append to line
 I / A
+
+-- yank line
+Y = yy
 
 -- open next, previous line
 o, O
@@ -104,6 +117,24 @@ r/R
 -- switch case of 3 letters
 3~
 
+-- insert 4 minuses
+4i- Esc
+
+-- join with next 3 lines
+3J
+
+-- remove search highlight
+:noh
+
+-- word completion, previous, next
+Ctrl-p, Ctrl-n
+
+-- move current line to top, middle, bottom
+z<Enter>, z., z-
+
+-- move line 200 to middle
+200z.
+
 ## delete last word
 Ctrl-w
 
@@ -115,8 +146,14 @@ Ctrl-w
 -- follow link, go back
 Ctrl-AltGr-](9), Ctrl-t
 
--- start / end of paragraph
+-- start of current / next sentence
+( / )
+
+-- start of current / next paragraph
 { / }
+
+-- start of current / next section
+[[ / ]]
 
 -- to 50%
 50%
@@ -170,6 +207,9 @@ q1, q, @1
 
 -- read file into buffer
 :read my.txt
+
+-- trick: transpose two letters
+xp
 
 
 
