@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y \
 	cifs-utils \
 	sudo
 
+RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+RUN apt-get install -y nodejs && npm install -g ember-cli
+
 RUN adduser --disabled-password --gecos "" dennis
 RUN echo "dennis:x" | chpasswd
 RUN usermod -a -G sudo dennis
