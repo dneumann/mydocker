@@ -1,4 +1,8 @@
 
+sudo apt-get install docker
+sudo apt-get install git
+git clone https://github.com/dneumann/mydocker.git
+
 sudo apt-get install firefox
 # chrome.deb
 sudo apt-get install vlc
@@ -14,7 +18,7 @@ sudo apt-get install dropbox
 sudo apt-get install atom
 sudo apt-get install virtualbox
 sudo apt-get install gimp
-# oxygene
+# oxygen
 # skype
 # wine + office
 # xmind

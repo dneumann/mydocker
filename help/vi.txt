@@ -135,6 +135,12 @@ z<Enter>, z., z-
 -- move line 200 to middle
 200z.
 
+-- find / in line, next, previous
+f/ ; , (F/)
+t/ T/ (find before)
+cf/, dt/
+
+
 ## delete last word
 Ctrl-w
 

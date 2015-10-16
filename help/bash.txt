@@ -9,3 +9,5 @@ done
 for i in {137..999}; do
 	echo $i
 done
+
+mount -t cifs --verbose -o username="GWDG\subtypo3" //samba.gwdg.de/subtypo3/data/ocr-tests /ocr-tests
