@@ -8,6 +8,7 @@
 !build.sh
 !start.sh
 !mac-start.sh
+!mount-ent-git.sh
 
 !.bash_logout
 !.bashrc
@@ -23,3 +24,5 @@
 
 !help
 !help/*
+
+!samba
