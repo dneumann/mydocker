@@ -1,5 +1,5 @@
 
-sudo apt-get install docker
+sudo apt-get install docker (docker-engine?)
 sudo apt-get install git
 git clone https://github.com/dneumann/mydocker.git
 
@@ -12,6 +12,14 @@ sudo apt-get install pidgin
 # dneuman1
 # Domain: jabber.gwdg.de
 # 4
+
+printer:
+Ricoh Aficio MP C305, 10.0.3.245
+
+shares:
+Domain: UG-SUB
+//ug-sub-cl/work/DB/ENT
+//ug-sub-cl/user/dneuman1
 
 sudo apt-get install acroread
 sudo apt-get install dropbox
