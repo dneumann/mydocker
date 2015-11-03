@@ -1,5 +1,8 @@
 #!/bin/bash
 
-docker rm mydocker
-docker rmi mydocker_image
-docker build -t mydocker_image .
+image=`head -1 docker-names.txt`
+container=`tail -1 docker-names.txt`
+
+docker rm $container 
+docker rmi $image
+docker build -t $image .

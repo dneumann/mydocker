@@ -9,6 +9,7 @@
 !start.sh
 !mac-start.sh
 !mount-ent-git.sh
+!docker-names.txt
 
 !.bash_logout
 !.bashrc

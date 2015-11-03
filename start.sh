@@ -1,16 +1,19 @@
 #!/bin/bash
 
-docker rm mydocker
+image=`head -1 docker-names.txt`
+container=`tail -1 docker-names.txt`
+
+docker rm $container
 
 if [ "$1" = "-dotfiles" ]; then
-	docker run -v /home/dennis --name mydocker mydocker_image
-	docker inspect mydocker | grep /home/dennis
+	docker run -v /home/dennis --name $container $image
+	docker inspect $container | grep /home/dennis
 	# sudo xterm &
 	# cp /.../* .
 	# chown dennis ...
 	# chgrp dennis ...
 	
 else
-	docker run -v /home/dennis/mydocker:/home/dennis -it --privileged --name mydocker mydocker_image
+	docker run -v /home/dennis/mydocker:/home/dennis -p 4200:4200 -it --privileged --name $container $image
 fi
 
