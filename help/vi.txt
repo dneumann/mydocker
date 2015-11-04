@@ -1,3 +1,49 @@
+-- append to buffer z
+"Zyy
+
+-- restore
+vi -r
+vi -r file.txt
+
+-- read-only
+vi -R ...
+view ...
+
+-- open and jump
+vi +100 file.txt
+vi +/pattern file.txt
+vi + file.txt
+
+
+-- jump back to last mark
+''
+``
+
+-- marks
+mx
+`x
+'x
+
+-- go to non-blank start
+^
+
+-- remove search highlight
+:noh
+
+-- word completion, previous, next
+Ctrl-p, Ctrl-n
+
+-- move current line to top, middle, bottom
+z<Enter>, z., z-
+
+-- move line 200 to middle
+200z.
+
+-- find / in line, next, previous
+f/ ; , (F/)
+t/ T/ (find before, just after)
+cf/, dt/
+
 -- top / bottom
 gg / G
 
@@ -42,6 +88,7 @@ ZZ = :wq
 
 -- split buffer
 :sp
+:vsp
 
 -- split and load new file
 :sp file.txt
@@ -122,23 +169,6 @@ r/R
 
 -- join with next 3 lines
 3J
-
--- remove search highlight
-:noh
-
--- word completion, previous, next
-Ctrl-p, Ctrl-n
-
--- move current line to top, middle, bottom
-z<Enter>, z., z-
-
--- move line 200 to middle
-200z.
-
--- find / in line, next, previous
-f/ ; , (F/)
-t/ T/ (find before)
-cf/, dt/
 
 
 ## delete last word
