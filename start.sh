@@ -7,8 +7,9 @@ docker rm $container
 
 if [ "$1" = "-dotfiles" ]; then
 	docker run -v /home/dennis --name $container $image
-	docker inspect $container | grep /home/dennis
+	docker inspect $container | grep volumes
 	# sudo xterm &
+	# sudo gnome-terminal &
 	# cp /.../* .
 	# chown dennis ...
 	# chgrp dennis ...
