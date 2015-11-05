@@ -2,6 +2,7 @@ syntax on
 set nu
 set relativenumber
 set hlsearch
+set mouse=a
 
 " scroll bar at the bottom
 set laststatus=2
