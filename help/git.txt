@@ -184,3 +184,7 @@ See remote URL
 git remote -v
 
 
+Compare file versions
+
+git diff HEAD^ HEAD file
+git diff HEAD~1 HEAD file
