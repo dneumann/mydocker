@@ -1,3 +1,60 @@
+-- view buffers
+:ls, :files, :buffers
+:ls!
+
+-- resize
+Ctrl-w =
+10 Ctrl-w -, +
+:resize -10
+:resize +10
+Ctrl-w <, >
+Ctrl-w |
+z 20 <CR>
+
+-- move to new tab
+Ctrl-w T
+
+-- move window
+Ctrl-w K, J, H, L 
+
+-- exchange two windows
+Ctrl-w x, X
+3 Ctrl-w x
+
+-- rotate windows
+Ctrl-w r, R
+
+-- repeat colon command
+@:, @@
+
+-- split buffer
+:sp, Ctrl-w s
+:10sp
+:vsp, Ctrl-w v, :vnew
+
+-- split and load new file
+:sp file.txt
+:new, :e file.txt
+
+-- go to upper window
+Ctrl-w k
+
+-- cycle through windows
+Ctrl-w Ctrl-w, Ctrl-w w
+Ctrl-w W
+
+-- go to top, bottom, previous
+Ctrl-w t, b, p
+
+-- open two files
+vi -o f2 f2
+
+-- close current buffer
+:q, Ctrl-w q
+
+-- sleep, quit sleeping
+Ctrl-s, Ctrl-q
+
 -- append to buffer z
 "Zyy
 
@@ -85,17 +142,6 @@ ZZ = :wq
 
 -- save as
 :w new_file
-
--- split buffer
-:sp
-:vsp
-
--- split and load new file
-:sp file.txt
-:new, :e file.txt
-
--- go to upper window
-Ctrl-w k
 
 -- history
 q:
