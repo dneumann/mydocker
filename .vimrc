@@ -3,6 +3,8 @@ set nu
 set relativenumber
 set hlsearch
 set mouse=a
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
 
 " scroll bar at the bottom
 set laststatus=2
