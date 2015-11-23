@@ -1,6 +1,6 @@
 syntax on
 set nu
-set relativenumber
+"set relativenumber
 set hlsearch
 set mouse=a
 autocmd InsertEnter * set cul
