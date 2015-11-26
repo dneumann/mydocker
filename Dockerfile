@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
 	vim \
 	cifs-utils \
 	bzip2 \
+        ack-grep \
 	sudo
 
 RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -

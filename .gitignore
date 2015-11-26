@@ -6,7 +6,7 @@
 .config/
 .m2/
 .npm/
-.vim/
+.vim/.netrwhist
 
 git/*
 !git/bfg.jar
