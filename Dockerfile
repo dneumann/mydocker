@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
 	less \
 	git \
 	maven \
-	vim \
+	vim-nox \
 	cifs-utils \
 	bzip2 \
         ack-grep \
