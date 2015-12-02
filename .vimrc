@@ -10,6 +10,8 @@ autocmd InsertLeave * set nocul
 nmap <leader>a :tab split<CR>:Ack ""<Left>
 nmap <leader>A :tab split<CR>:Ack <C-r><C-w><CR>
 
+let g:ConqueTerm_ReadUnfocused = 1
+
 " scroll bar at the bottom
 set laststatus=2
 func! STL()
