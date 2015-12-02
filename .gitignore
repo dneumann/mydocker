@@ -8,6 +8,7 @@
 .npm/
 .vim/.netrwhist
 
+temp/
 git/*
 !git/bfg.jar
 !git/clone-all.sh
