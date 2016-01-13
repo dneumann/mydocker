@@ -1,6 +1,11 @@
+stop/continue output: CTRL-c, CTRL-q
+DEL = CTRL-h, CTRL-?
+delete entire command line: CTRL-u
+RETURN = CTRL-m
+view key mappings: stty -a
+
 replace all newlines
 tr '\n' ' ' < input_filename
-
 
 for lang in $langs; do
 	echo $lang
