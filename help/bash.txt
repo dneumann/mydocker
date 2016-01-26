@@ -1,8 +1,20 @@
-stop/continue output: CTRL-c, CTRL-q
-DEL = CTRL-h, CTRL-?
+BACKSPACE = CTRL-h, CTRL-?
+delete word = ESC CTRL-h, ESC BACKSPACE
+DEL = CTRL-d
+delete word = ESC d
 delete entire command line: CTRL-u
 RETURN = CTRL-m
+LEFT = CTRL-b
+word back = ESC b
+RIGHT = CTRL-f
+word forward = ESC f
+restore last deleted word: CTRL-y
+
+CTRL-a,e: to start/end of line
+CTRL-k: kill until end
+
 view key mappings: stty -a
+stop/continue output: CTRL-c, CTRL-q
 
 replace all newlines
 tr '\n' ' ' < input_filename
