@@ -13,8 +13,14 @@ restore last deleted word: CTRL-y
 CTRL-a,e: to start/end of line
 CTRL-k: kill until end
 
+CTRL-p,n: history
+ESC >,<: last, first in history
+CTRL-rr: redo previous search
+
+$ TAB, ~ TAB: complete variable, username
+
 view key mappings: stty -a
-stop/continue output: CTRL-c, CTRL-q
+stop/continue output: CTRL-s, CTRL-q
 
 replace all newlines
 tr '\n' ' ' < input_filename
