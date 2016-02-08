@@ -1,9 +1,9 @@
 BACKSPACE = CTRL-h, CTRL-?
-delete word = ESC CTRL-h, ESC BACKSPACE
+delete word = ESC CTRL-h, ESC BACKSPACE, CTRL-w
 DEL = CTRL-d
 delete word = ESC d
 delete entire command line: CTRL-u
-RETURN = CTRL-m
+RETURN = CTRL-m, CTRL-j
 LEFT = CTRL-b
 word back = ESC b
 RIGHT = CTRL-f
@@ -14,10 +14,13 @@ CTRL-a,e: to start/end of line
 CTRL-k: kill until end
 
 CTRL-p,n: history
+CTRL-o: return and next command in history
 ESC >,<: last, first in history
 CTRL-rr: redo previous search
 
 $ TAB, ~ TAB: complete variable, username
+
+CTRL-v: insert non-printable character
 
 view key mappings: stty -a
 stop/continue output: CTRL-s, CTRL-q
