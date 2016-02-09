@@ -3,7 +3,8 @@ delete word = ESC CTRL-h, ESC BACKSPACE, CTRL-w
 DEL = CTRL-d
 delete word = ESC d
 delete entire command line: CTRL-u
-RETURN = CTRL-m, CTRL-j
+RETURN = CTRL-m 
+LINEFEED = CTRL-j
 LEFT = CTRL-b
 word back = ESC b
 RIGHT = CTRL-f
@@ -22,8 +23,15 @@ $ TAB, ~ TAB: complete variable, username
 
 CTRL-v: insert non-printable character
 
+ESC-.: insert last word from previous command
+
+see key combinations in plain text: sed -n l
 view key mappings: stty -a
 stop/continue output: CTRL-s, CTRL-q
+
+fc -l: list recent history entries
+
+source script, . script: execute script in same shell
 
 replace all newlines
 tr '\n' ' ' < input_filename

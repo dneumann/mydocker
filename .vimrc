@@ -30,11 +30,25 @@ nnoremap <M-j> <C-w>j
 execute "set <M-k>=\ek"
 nnoremap <M-k> <C-w>k
 
-" scale window width with Alt-< and Alt->
+" scale window width with Alt-+ and Alt--
 execute "set <M-+>=\e+"
 nnoremap <M-+> 5<C-w>>
 execute "set <M-->=\e-"
 nnoremap <M--> 5<C-w><
+
+" move quickly on a line
+nmap <C-h> 8h
+nmap <C-l> 8l
+
+" move quickly on page
+nmap <C-k> 5k
+nmap <C-j> 5j
+
+" move in input mode
+imap <C-f> <Right>
+imap <C-b> <Left>
+imap <C-e> <Up>
+imap <C-d> <Down>
 
 let g:ConqueTerm_ReadUnfocused = 1
 
