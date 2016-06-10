@@ -1,0 +1,55 @@
+Make solr show all indexed terms of a field
+
+  Query URL: http://localhost:8983/solr/fwb/allterms?wt=xslt&fl=article_html&indent=true&q=lemma%3Aimbis
+
+  - in solrconfig.xsl:
+
+  <searchComponent name="tvComponent" class="org.apache.solr.handler.component.TermVectorComponent"/>
+  <requestHandler name="/allterms" class="org.apache.solr.handler.component.SearchHandler">
+    <lst name="defaults">
+      <bool name="tv">true</bool>
+      <str name="tv.offsets">true</str>
+      <str name="tr">allterms.xsl</str>
+      <str name="echoParams">all</str>
+    </lst>
+    <arr name="last-components">
+      <str>tvComponent</str>
+    </arr>
+  </requestHandler>
+
+
+  - allterms.xsl
+
+  <?xml version="1.0" encoding="utf-8"?>
+  <xsl:stylesheet version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>
+  
+    <xsl:output method="xml" encoding="utf-8" media-type="application/xml" />
+  
+    <xsl:template match="/">
+      <result>
+        <xsl:apply-templates select="//lst[@name='termVectors']/lst/lst" />
+      </result>
+    </xsl:template>
+  
+    <xsl:template match="lst[@name='termVectors']/lst/lst">
+      <field name="{@name}">
+        <xsl:apply-templates select=".//int[@name='start']">
+          <xsl:sort select="text()" data-type='number' />
+        </xsl:apply-templates>
+      </field>
+    </xsl:template>
+  
+    <xsl:template match="int">
+      <xsl:value-of select="parent::lst/parent::lst/@name" />
+      <xsl:text> </xsl:text>
+    </xsl:template>
+    
+  </xsl:stylesheet>
+
+
+  - in schema.xsl
+
+  <field name="article_html" type="text_de" indexed="true" stored="true" required="false" multiValued="false"
+       termVectors="true"
+       termOffsets="true" />
+ 
