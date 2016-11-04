@@ -1,0 +1,173 @@
+- sequences
+
+    <xsl:variable name="cities" as="xs:string*">
+      <xsl:sequence select="addressbook/address/city"/>
+      <xsl:sequence select="('London', 'Adelaide', 'Rome')"/>
+      <xsl:sequence select="('Jakarta', 'Sao Paulo', 'Timbuktu')"/>
+    </xsl:variable>
+    <xsl:value-of select="$cities" separator="&#xA;"/>
+
+    <xsl:variable name="cities" as="item()*">
+      <xsl:sequence select="addressbook/address/city"/>
+      <xsl:sequence select="('London', 'Adelaide', 'Rome')"/>
+      <xsl:sequence select="('Jakarta', 'Sao Paulo', 'Timbuktu')"/>
+    </xsl:variable>
+    <xsl:for-each select="$cities">
+      <xsl:choose>
+        <xsl:when test=". instance of element()">
+          <xsl:text>        Node: </xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>Atomic value: </xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:value-of select="."/>
+      <xsl:text>&#xA;</xsl:text>
+    </xsl:for-each>
+
+    <xsl:variable name="cities" as="xs:string*">
+      <xsl:sequence 
+        select="(/addressbook/address/city, 
+                 ('London', 'Adelaide', 'Rome'), 
+                 ('Jakarta', 'Sao Paulo', 'Timbuktu'))"/>
+    </xsl:variable>
+
+- node()
+
+   /sonnet/descendant-or-self::node()/line equals /sonnet//line
+
+- constructors
+
+   <xsl:variable name="sample" select="xs:integer(3)"/>
+   <xsl:variable name="birthday" select="xs:date('1995-04-21')"/>
+   xs:boolean(1) same as true()
+
+- if-then-else
+    <xsl:value-of select="if ($x &gt; 10) then 'Big' else 'Little'"/>
+
+- inner for
+    <xsl:value-of 
+      select="for $m in ($English-months, $German-months) return
+                if (starts-with($m, 'J')) 
+                  then concat ($m, ' starts with J!&#xA;')
+                  else ''"
+      separator=""/>
+
+- some and every
+    <xsl:value-of 
+      select="if (some $m in $English-months satisfies 
+              (string-length($m) &gt; 4)) then 'Yes' else 'No'"/>
+
+- to operator
+  <xsl:variable name="some-numbers" as="xs:integer*"
+    select="1 to 5"/>
+  <xsl:variable name="reversed-numbers" as="xs:integer*"
+    select="reverse(1 to 5)"/>
+
+- casting
+  <xsl:value-of select="'3' cast as xs:integer"/>
+  '3' castable as xs:integer: true
+  <xsl:variable name="number" as="xs:integer"
+      select="$numbers treat as xs:integer"/>
+
+- except, intersect, union/|
+   <xsl:variable name="Dougs-favorites" as="node()*">
+    <xsl:sequence 
+      select="/favorite-books/booklist
+              /book[contains(@favorite, 'Doug')]"/>
+   </xsl:variable>
+   <xsl:for-each select="$Dougs-favorites except $Sheris-favorites">
+
+- is, >>, << (&lt;&lt;)
+
+    <xsl:value-of 
+      select="if (subsequence($Dougs-favorites, 1, 1) is 
+                  subsequence($Sheris-favorites, 1, 1))
+              then '    The first nodes are the same!&#xA;'
+              else '    The first nodes aren''t the same!&#xA;'"/>
+    <xsl:value-of 
+      select="if (subsequence($Dougs-favorites, 2, 1) >>
+                  subsequence($Dougs-favorites, 1, 1))
+              then '    node2 >> node1 = true&#xA;'
+              else '    node2 >> node1 = false&#xA;'"/>
+
+- comment inside xpath: (: comment :)
+
+- test for empty string
+    <xsl:if test="string-length(normalize-space(.))">
+
+- numbers
+
+        <xsl:for-each select="cars/manufacturer">
+            <xsl:number format="1. "/>
+            <xsl:value-of select="@name"/>
+        </xsl:for-each>
+     format="a. "
+     <xsl:number value="count(car)" format="01"/>
+     <xsl:number value="1965" format="I"/>
+
+    <xsl:for-each select="cars/manufacturer">
+      <xsl:number count="manufacturer" format="1. "/>
+      <xsl:for-each select="car">
+        <xsl:number count="manufacturer|car" level="multiple" 
+          format="1.1. "/>
+
+    <xsl:value-of select="position()"/>
+
+    <xsl:number count="car" level="single" format="w"/> -> one, two, three
+
+- number formatting
+  <xsl:decimal-format decimal-separator="," grouping-separator="."/>
+    <xsl:value-of 
+      select="format-number(3728493.3882, '#.###,##')"/>
+    <xsl:value-of select="format-date(current-date(), 
+                          '[M01]/[D01]/[Y0001]')"/>
+
+- copy everything
+
+  <xsl:template match="/">
+    <xsl:copy-of select="*"/>
+  </xsl:template>
+
+  <xsl:template match="node()|@*">
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*"/>
+    </xsl:copy>
+  </xsl:template>
+
+  - without comments and pis
+  <xsl:template match="/">
+    <xsl:apply-templates select="*"/>
+  </xsl:template>
+  <xsl:template match="*">
+    <xsl:copy>
+      <xsl:for-each select="@*">
+        <xsl:copy/>
+      </xsl:for-each>
+      <xsl:apply-templates/>
+    </xsl:copy>
+  </xsl:template>
+
+- whitespace
+  The tab character (&#x9;)
+  The newline character (&#xA;)
+  The carriage return character (&#xD;)
+  The space character (&#x20;)
+
+- default parameter value
+  <xsl:param name="bgColor" select="'blue'"/> // blue would be a name of an element
+  <xsl:param name="width" select="150"/>
+  <xsl:param name="bgColor">
+    <xsl:text>blue</xsl:text>
+  </xsl:param>
+
+- complex variable
+<xsl:variable name="y">
+  <xsl:choose>
+    <xsl:when test="$x &gt; 7">
+</xsl:variable>
+
+- stop script
+          <xsl:message terminate="yes">
+
+
