@@ -33,6 +33,12 @@ fc -l: list recent history entries
 
 source script, . script: execute script in same shell
 
+read input file line by line
+while read line; do
+  echo $line
+done
+---> ./myscript.sh < lines.txt
+
 replace all newlines
 tr '\n' ' ' < input_filename
 
