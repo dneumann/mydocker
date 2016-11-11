@@ -170,4 +170,21 @@
 - stop script
           <xsl:message terminate="yes">
 
+- sorting
+    <xsl:variable name="sortedCities" as="xs:string*">
+      <xsl:perform-sort select="addressbook/address/city">
+        <xsl:sort select="."/>
+      </xsl:perform-sort>
+    </xsl:variable>
+
+    <xsl:variable name="sortedCities" as="xs:string*">
+      <xsl:perform-sort>
+        <xsl:sort select="."/>
+        <xsl:apply-templates select="addressbook/address/city"/>
+        <xsl:sequence select="('London', 'Adelaide', 'Rome')"/>
+        <xsl:sequence select="('Jakarta', 'Sao Paulo', 'Timbuktu')"/>
+      </xsl:perform-sort>
+    </xsl:variable>
+    <xsl:value-of select="distinct-values($sortedCities)"
+      separator="&#xA;"/>
 
