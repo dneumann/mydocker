@@ -1,0 +1,4 @@
+- NIO
+
+  MultipartFile file = ...;
+  Files.copy(file.getInputStream(), Paths.get(UPLOAD_ROOT, file.getOriginalFileName()));
