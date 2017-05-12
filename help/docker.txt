@@ -30,6 +30,7 @@ docker push dneumann/myImage
 
 Remove image
 docker rmi dneumann/myImage
+docker rmi $(docker images -q -f "dangling=true")
 
 See daemon events
 docker events --since=0
@@ -104,5 +105,13 @@ docker run -h "myhost" debian
 
 docker port ...
 
+Show network
+docker network ls
+docker network inspect <name>
+
 // volumes von db1 zeigen
 docker inspect -f {{.Volumes}} db1
+
+Run bash in running container
+docker-compose exec <name> bash
+docker exec -it <name> bash
