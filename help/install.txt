@@ -1,5 +1,28 @@
+# GRUB 2
+/etc/default/grub
+# start second line:
+GRUB_DEFAULT=1
+# save last:
+GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+# keep changes:
+sudo update-grub
 
-sudo apt-get install docker (docker-engine?)
+# Docker-CE on Mint 18.1 serena/18.2 sonya
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+sudo apt-get update
+sudo apt-get install docker-ce
+# if "permission denied"
+sudo usermod -a -G docker $USER
+
+# docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+echo "alias dc='docker-compose'" >> .bashrc
+
+
 sudo apt-get install git
 git clone https://github.com/dneumann/mydocker.git
 
