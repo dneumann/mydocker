@@ -15,6 +15,6 @@ if [ "$1" = "-dotfiles" ]; then
 	# chgrp dennis ...
 	
 else
-	docker run -v /home/dennis/mydocker:/home/dennis -p 4200:4200 -it --privileged --name $container $image
+	docker run -v /home/dennis/mydocker:/home/dennis -it --privileged --name $container $image
 fi
 

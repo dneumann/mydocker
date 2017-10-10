@@ -6,16 +6,9 @@ RUN apt-get update && apt-get install -y \
 	git \
 	maven \
 	vim-nox \
-	cifs-utils \
 	bzip2 \
-        ack-grep \
+    ack-grep \
 	sudo
-
-RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
-RUN apt-get update && apt-get install -y nodejs \
-	&& npm install -g bower \
-	&& npm install -g ember-cli \
-	&& npm install -g phantomjs
 
 RUN adduser --disabled-password --gecos "" dennis
 RUN echo "dennis:x" | chpasswd
