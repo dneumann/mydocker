@@ -7,6 +7,7 @@
 .m2/
 .npm/
 .vim/.netrwhist
+.gradle
 
 temp/
 git/*

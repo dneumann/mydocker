@@ -52,7 +52,6 @@ sudo apt-get install gimp
 # oxygen
 # skype
 # wine + office
-# xmind
-# eclipse
+# eclipse: Buildship
 
 
