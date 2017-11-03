@@ -1,3 +1,7 @@
+Get repository size on GitHub:
+curl -u "dneumann" https://api.github.com/repos/subugoe/... |grep size
+
+
 Configuring
 
 git config --global user.name
