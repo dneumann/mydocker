@@ -2,3 +2,20 @@
 
   MultipartFile file = ...;
   Files.copy(file.getInputStream(), Paths.get(UPLOAD_ROOT, file.getOriginalFileName()));
+
+
+
+- List Matcher
+ 
+  private Matcher<List<Integer>> isListOf(Integer... ints) {
+    return is(Arrays.asList(ints));
+  }
+
+  @Test
+  public void factors() {
+    assertThat(primeFactorsOf(1), isListOf());
+  }
+
+  private List<Integer> primeFactorsOf(int n) {
+    return ...
+  }

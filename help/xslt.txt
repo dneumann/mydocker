@@ -78,7 +78,7 @@
    </xsl:variable>
    <xsl:for-each select="$Dougs-favorites except $Sheris-favorites">
 
-- is, >>, << (&lt;&lt;)
+- is, >> (node-after), << (&lt;&lt;)
 
     <xsl:value-of 
       select="if (subsequence($Dougs-favorites, 1, 1) is 
@@ -187,4 +187,31 @@
     </xsl:variable>
     <xsl:value-of select="distinct-values($sortedCities)"
       separator="&#xA;"/>
+
+
+
+- reading from text file
+
+<xsl:for-each 
+  select="tokenize(unparsed-text('addresses.csv'), '\r?\n')">
+  <xsl:variable name="tokens" select="tokenize(., ',')"/>
+   <xsl:if test="count($tokens)">
+     <xsl:value-of 
+                    select="subsequence($tokens, 1, 2)" separator=" "/>
+
+
+- function
+
+  <xsl:variable name="colors" as="xs:string *"
+    select="('green', 'grey', 'blue', 'red')"/>
+
+  <xsl:function name="sample:getBackgroundColor" as="xs:string">
+    <xsl:param name="pos" as="xs:integer"/>
+    <xsl:value-of select="$colors[($pos mod count($colors)) + 1]"/>
+  </xsl:function>
+
+
+- use unescaped text
+
+  <xsl:text disable-output-escaping="yes">
 
