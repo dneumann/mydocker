@@ -37,7 +37,7 @@ sudo apt-get install pidgin
 # 4
 
 printer:
-Ricoh Aficio MP C305, 10.0.3.245
+KONICA MINOLTA C450 PS(P), 10.0.6.41
 
 shares:
 Domain: UG-SUB
