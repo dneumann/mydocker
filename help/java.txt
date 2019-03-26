@@ -1,21 +1,15 @@
-- NIO
 
-  MultipartFile file = ...;
-  Files.copy(file.getInputStream(), Paths.get(UPLOAD_ROOT, file.getOriginalFileName()));
+	private List<String> extractUsingRegex(String regex, String s) {
+		List<String> results = new ArrayList<String>();
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(s);
+		while (matcher.find()) {
+			results.add(matcher.group(1));
+		}
 
+		if (results.isEmpty()) {
+			results.add("");
+		}
+		return results;
+	}
 
-
-- List Matcher
- 
-  private Matcher<List<Integer>> isListOf(Integer... ints) {
-    return is(Arrays.asList(ints));
-  }
-
-  @Test
-  public void factors() {
-    assertThat(primeFactorsOf(1), isListOf());
-  }
-
-  private List<Integer> primeFactorsOf(int n) {
-    return ...
-  }
